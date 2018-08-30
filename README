@@ -1,0 +1,55 @@
+
+
+#### Setup Cassandra 
+
+# docker run -d -p 7000:7000 -p 9042:9042 cassandra:2.1
+
+Now create keyspace and data structure :
+
+CREATE KEYSPACE IF NOT EXISTS wasabi_experiments WITH replication = {'class' : 'SimpleStrategy', 'replication_factor' : 0};
+
+_______________
+SOURCE '/root/docker-wasabi/modules/repository-datastax/src/main/resources/com/intuit/wasabi/repository/impl/cassandra/migration/V001__Create_Experiment_table.cql'
+SOURCE '/root/docker-wasabi/modules/repository-datastax/src/main/resources/com/intuit/wasabi/repository/impl/cassandra/migration/V002__Create_Bucket_table.cql'
+SOURCE '/root/docker-wasabi/modules/repository-datastax/src/main/resources/com/intuit/wasabi/repository/impl/cassandra/migration/V003__Create_Experiment_Label_Index_table.cql'
+SOURCE '/root/docker-wasabi/modules/repository-datastax/src/main/resources/com/intuit/wasabi/repository/impl/cassandra/migration/V004__Create_State_Experiment_Index.cql'
+SOURCE '/root/docker-wasabi/modules/repository-datastax/src/main/resources/com/intuit/wasabi/repository/impl/cassandra/migration/V005__Create_UserAssignment_table.cql'
+SOURCE '/root/docker-wasabi/modules/repository-datastax/src/main/resources/com/intuit/wasabi/repository/impl/cassandra/migration/V006__Create_User_Experiment_Index_table.cql'
+SOURCE '/root/docker-wasabi/modules/repository-datastax/src/main/resources/com/intuit/wasabi/repository/impl/cassandra/migration/V007__Create_User_Bucket_Index_table.cql'
+SOURCE '/root/docker-wasabi/modules/repository-datastax/src/main/resources/com/intuit/wasabi/repository/impl/cassandra/migration/V008__Create_Experiment_audit_log.cql'
+SOURCE '/root/docker-wasabi/modules/repository-datastax/src/main/resources/com/intuit/wasabi/repository/impl/cassandra/migration/V009__Create_Bucket_audit_log.cql'
+SOURCE '/root/docker-wasabi/modules/repository-datastax/src/main/resources/com/intuit/wasabi/repository/impl/cassandra/migration/V010__Create_Exclusion_table.cql'
+SOURCE '/root/docker-wasabi/modules/repository-datastax/src/main/resources/com/intuit/wasabi/repository/impl/cassandra/migration/V011__Create_Experiment_user_index.cql'
+SOURCE '/root/docker-wasabi/modules/repository-datastax/src/main/resources/com/intuit/wasabi/repository/impl/cassandra/migration/V012__Create_Application_table.cql'
+SOURCE '/root/docker-wasabi/modules/repository-datastax/src/main/resources/com/intuit/wasabi/repository/impl/cassandra/migration/V013__Create_Page_Experiment_Index_table.cql'
+SOURCE '/root/docker-wasabi/modules/repository-datastax/src/main/resources/com/intuit/wasabi/repository/impl/cassandra/migration/V014__Create_Experiment_Page_table.cql'
+SOURCE '/root/docker-wasabi/modules/repository-datastax/src/main/resources/com/intuit/wasabi/repository/impl/cassandra/migration/V015__Create_App_Page_table.cql'
+SOURCE '/root/docker-wasabi/modules/repository-datastax/src/main/resources/com/intuit/wasabi/repository/impl/cassandra/migration/V016__Create_User_Role_table.cql'
+SOURCE '/root/docker-wasabi/modules/repository-datastax/src/main/resources/com/intuit/wasabi/repository/impl/cassandra/migration/V017__Create_App_Role_table.cql'
+SOURCE '/root/docker-wasabi/modules/repository-datastax/src/main/resources/com/intuit/wasabi/repository/impl/cassandra/migration/V018__Create_Superadmins_table.cql'
+SOURCE '/root/docker-wasabi/modules/repository-datastax/src/main/resources/com/intuit/wasabi/repository/impl/cassandra/migration/V019__Create_User_Info_table.cql'
+SOURCE '/root/docker-wasabi/modules/repository-datastax/src/main/resources/com/intuit/wasabi/repository/impl/cassandra/migration/V020__Create_User_Feedback_table.cql'
+SOURCE '/root/docker-wasabi/modules/repository-datastax/src/main/resources/com/intuit/wasabi/repository/impl/cassandra/migration/V021__Create_Staging_table.cql'
+SOURCE '/root/docker-wasabi/modules/repository-datastax/src/main/resources/com/intuit/wasabi/repository/impl/cassandra/migration/V022__Create_Bucket_Assignment_Counts_table.cql'
+SOURCE '/root/docker-wasabi/modules/repository-datastax/src/main/resources/com/intuit/wasabi/repository/impl/cassandra/migration/V023__Create_Auditlog_table.cql'
+SOURCE '/root/docker-wasabi/modules/repository-datastax/src/main/resources/com/intuit/wasabi/repository/impl/cassandra/migration/V024__Create_User_Assignment_Look_Up_table.cql'
+SOURCE '/root/docker-wasabi/modules/repository-datastax/src/main/resources/com/intuit/wasabi/repository/impl/cassandra/migration/V025__Create_User_Assignment_Export_table.cql'
+SOURCE '/root/docker-wasabi/modules/repository-datastax/src/main/resources/com/intuit/wasabi/repository/impl/cassandra/migration/V026__Insert_superadmins.cql'
+SOURCE '/root/docker-wasabi/modules/repository-datastax/src/main/resources/com/intuit/wasabi/repository/impl/cassandra/migration/V027__Create_ApplicationList_table.cql'
+SOURCE '/root/docker-wasabi/modules/repository-datastax/src/main/resources/com/intuit/wasabi/repository/impl/cassandra/migration/V028__Alter_Experiment_Add_Columns.cql'
+SOURCE '/root/docker-wasabi/modules/repository-datastax/src/main/resources/com/intuit/wasabi/repository/impl/cassandra/migration/V029__Create_User_Assignment_By_UserId_table.cql'
+SOURCE '/root/docker-wasabi/modules/repository-datastax/src/main/resources/com/intuit/wasabi/repository/impl/cassandra/migration/V030__Drop_User_Assignment_Look_Up_table.cql'
+SOURCE '/root/docker-wasabi/modules/repository-datastax/src/main/resources/com/intuit/wasabi/repository/impl/cassandra/migration/V031__Drop_User_Experiment_Index_table.cql'
+SOURCE '/root/docker-wasabi/modules/repository-datastax/src/main/resources/com/intuit/wasabi/repository/impl/cassandra/migration/V032__Drop_User_Bucket_Index_table.cql'
+SOURCE '/root/docker-wasabi/modules/repository-datastax/src/main/resources/com/intuit/wasabi/repository/impl/cassandra/migration/V033__Drop_User_Assignment_table.cql'
+SOURCE '/root/docker-wasabi/modules/repository-datastax/src/main/resources/com/intuit/wasabi/repository/impl/cassandra/migration/V034__Drop_User_Assignment_By_UserId_table.cql'
+SOURCE '/root/docker-wasabi/modules/repository-datastax/src/main/resources/com/intuit/wasabi/repository/impl/cassandra/migration/V035__Create_ExperimentTag_table.cql'
+SOURCE '/root/docker-wasabi/modules/repository-datastax/src/main/resources/com/intuit/wasabi/repository/impl/cassandra/migration/V036__Alter_Experiment_Add_Tags.cql'
+_______________
+
+# Setup Mysql 5.x Server and Create 'wasabi' schema
+
+######### Start wasabi ############
+
+# docker run -d -p 8080:8080 -p 8090:8090 -p 8180:8180 -t piyushbj/wasabi
+#
